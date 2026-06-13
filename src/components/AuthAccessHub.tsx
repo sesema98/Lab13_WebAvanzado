@@ -10,6 +10,7 @@ import CredentialsAuthPanel from "@/components/CredentialsAuthPanel";
 import OAuthProviderButton from "@/components/OAuthProviderButton";
 
 type AuthAccessHubProps = {
+  baseUrl: string;
   initialError: string | null;
   providerStatus: {
     google: boolean;
@@ -42,6 +43,7 @@ function resolveErrorMessage(error: string | null) {
 }
 
 export default function AuthAccessHub({
+  baseUrl,
   initialError,
   providerStatus,
 }: AuthAccessHubProps) {
@@ -124,7 +126,7 @@ export default function AuthAccessHub({
           </div>
 
           <p className="mt-5 text-sm leading-7 text-[#5e5a52]">
-            Usa la URL de callback `http://localhost:3000/api/auth/callback/google`.
+            Usa la URL de callback `{baseUrl}/api/auth/callback/google`.
           </p>
 
           <OAuthProviderButton
@@ -154,7 +156,7 @@ export default function AuthAccessHub({
           </div>
 
           <p className="mt-5 text-sm leading-7 text-[#5e5a52]">
-            Usa la URL de callback `http://localhost:3000/api/auth/callback/github`.
+            Usa la URL de callback `{baseUrl}/api/auth/callback/github`.
           </p>
 
           <OAuthProviderButton

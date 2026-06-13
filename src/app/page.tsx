@@ -32,6 +32,7 @@ const highlights = [
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
+  const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
 
   return (
     <section className="flex flex-col gap-8">
@@ -108,7 +109,7 @@ export default async function Home() {
                 Ruta de callback requerida
               </p>
               <code className="mt-2 block overflow-x-auto text-sm text-[#1c1b18]">
-                http://localhost:3000/api/auth/callback/google
+                {baseUrl}/api/auth/callback/google
               </code>
             </div>
 

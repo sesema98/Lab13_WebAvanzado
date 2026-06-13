@@ -8,9 +8,11 @@ type SignInPageProps = {
 
 export default async function SignInPage({ searchParams }: SignInPageProps) {
   const { error } = await searchParams;
+  const baseUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
 
   return (
     <AuthAccessHub
+      baseUrl={baseUrl}
       initialError={error ?? null}
       providerStatus={{
         google: Boolean(
